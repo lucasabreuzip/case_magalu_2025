@@ -1,0 +1,51 @@
+{
+    "capitais": {
+        "Salvador": [-12.9714, -38.5014],
+        "Aracaju": [-10.9472, -37.0731],
+        "Maceió": [-9.66599, -35.7350],
+        "Recife": [-8.0476, -34.8770],
+        "João Pessoa": [-7.1151, -34.8641],
+        "Natal": [-5.7945, -35.2110],
+        "Fortaleza": [-3.7172, -38.5433],
+        "Teresina": [-5.0892, -42.8016],
+        "São Luís": [-2.5297, -44.3028],
+        "Belo Horizonte": [-19.9166, -43.9344],
+        "Vitória": [-20.3155, -40.3128],
+        "Goiânia": [-16.6869, -49.2648],
+        "Palmas": [-10.1840, -48.3336]
+    },
+    "origens": {
+        "Salvador": [-12.9714, -38.5014],
+        "Recife": [-8.0476, -34.8770]
+    },
+    "diretorios": {
+        "cache": "cache_rotas",
+        "datasets": "datasets_gerados"
+    },
+    "graphhopper": {
+        "url": "https://graphhopper.com/api/1/route",
+        "vehicle": "car",
+        "locale": "pt",
+        "points_encoded": true
+    },
+    "cache": {
+        "ttl_horas": 168
+    },
+    "retry": {
+        "max_tentativas": 3,
+        "delay_inicial": 1,
+        "backoff_multiplicador": 2
+    },
+    "custos": {
+        "combustivel_por_litro": 5.5,
+        "consumo_km_por_litro": 12,
+        "pedagio_por_100km": 15
+    },
+    "batch": {
+        "size": 10,
+        "max_workers": 4,
+        "rate_limit_per_second": 5,
+        "timeout_batch": 300,
+        "connection_pool_size": 20
+    }
+}
