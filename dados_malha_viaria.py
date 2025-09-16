@@ -4,7 +4,7 @@ SISTEMA DE MALHA VIÁRIA
 Sistema para análise de rotas entre cidades utilizando GraphHopper API.
 Suporta cache inteligente, processamento assíncrono e geração de mapas interativos.
 
-Autor: Lucas Abreu
+Autor: Lucas Abreu - lucasabreuzip
 GitBuh: https://github.com/lucasabreuzip
 Linkedin: https://www.linkedin.com/in/lucasabreuzip/
 Versão: 2.0
@@ -605,7 +605,7 @@ async def main_async():
         
         # Salvar CSV consolidado
         datasets_dir = CONFIG_MANAGER.get('diretorios', 'datasets')
-        arquivo_consolidado = os.path.join(datasets_dir, "rotas__nordeste.csv")
+        arquivo_consolidado = os.path.join(datasets_dir, "dataset_rotas_nordeste.csv")
         try:
             df_consolidado.to_csv(arquivo_consolidado, index=False)
             logger.debug(f"💾 Arquivo CSV único salvo como: {arquivo_consolidado}")
