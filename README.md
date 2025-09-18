@@ -380,10 +380,6 @@ Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICE
 - Resultados devem ser validados para uso comercial
 - APIs externas sujeitas a seus próprios termos de uso
 
-### �️ **Visualização dos Mapas**
-   - [🗺️ Mapa Recife](https://lucasabreuzip.github.io/case_magalu_2025/mapa_entregas_recife.html)
-   - [🗺️ Mapa Salvador](https://lucasabreuzip.github.io/case_magalu_2025/mapa_entregas_salvador.html)
-
 ### �📚 **Documentação Detalhada**
 - [🧠 Sistema de IA](README_IA_ANALISE.md) - Engine principal e algoritmos
 - [📈 Análise Demográfica](README_CONSUMO.md) - Dados IBGE e população
