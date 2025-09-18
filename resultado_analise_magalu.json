@@ -1,0 +1,41 @@
+{
+  "timestamp": "2025-09-18T01:59:27.680668",
+  "cidade_recomendada": "RECIFE",
+  "score_recife": 0.7930523669748888,
+  "score_salvador": 0.41168440921642313,
+  "vantagem_percentual": 38.136795775846565,
+  "confianca": 0.95,
+  "fatores_decisivos": [
+    "População 10.8M em 500km de Recife vs 2.3M de Salvador",
+    "ROI 20.2% superior em Recife"
+  ],
+  "metodologias": [
+    "Fuzzy Logic calibrado para análise logística",
+    "Ensemble de 4 modelos ML com validação cruzada",
+    "Algoritmo Genético com balanceamento de pesos",
+    "Análise de 23 variáveis econômicas",
+    "Análise demográfica",
+    "Normalização robusta (RobustScaler)",
+    "Data Augmentation controlada (±2% de variação)"
+  ],
+  "pesos_otimizados": {
+    "Custos_Economia": 0.17335029051827738,
+    "Logistica_Fuzzy": 0.17335029051827738,
+    "Mercado_Regional": 0.4622674413820731,
+    "ML_Ensemble": 0.19103197758137214
+  },
+  "validacao_dados": {
+    "custos": {
+      "custo_construcao_recife": 1671.79,
+      "custo_construcao_salvador": 1720.08,
+      "populacao_recife": 1588376.0,
+      "populacao_salvador": 2564204.0
+    },
+    "rotas": {
+      "num_rotas_recife": 12,
+      "num_rotas_salvador": 12,
+      "dist_media_recife": 1119.1924999999999,
+      "dist_media_salvador": 1103.0325
+    }
+  }
+}

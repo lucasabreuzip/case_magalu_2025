@@ -1,0 +1,3 @@
+﻿populacao,pib_total,renda_mensal,ipca_regional,custo_construcao,preco_venda,area_territorial,industria,servicos,agropecuaria,emprego_formal,pib_per_capita,mercado_potencial_anual,densidade_demografica,cidade,uf,codigo_municipio,codigo_estado,regiao_metropolitana,latitude,longitude,data_coleta,fonte_dados
+2564204.0,62954487000.0,2847.6,2.94,1720.08,4.94,3859.35,360.0,52697000.0,7160180000.0,1098.0,24551.278681415362,61335349407.359985,664.4134374959514,Salvador,BA,2927408,29,2901,-12.9714,-38.5014,2025-09-17 01:53:21,IBGE Oficiais
+1588376.0,54970305000.0,3103.8,3.09,1671.79,5.77,7037.61,310.0,60088000.0,6208334000.0,602.0,34607.86677713589,41412012001.92,225.69821288761383,Recife,PE,2611606,26,2601,-8.0476,-34.877,2025-09-17 01:53:24,IBGE Oficiais
