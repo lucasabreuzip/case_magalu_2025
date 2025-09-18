@@ -1,6 +1,6 @@
 {
-  "distance_km": 1151.094255,
-  "tempo_h": 14.476430555555556,
+  "distance_km": 1151.015138,
+  "tempo_h": 14.474052222222221,
   "coords": [
     [
       -12.97146,
@@ -21211,17 +21211,13 @@
       -42.80225
     ],
     [
-      -5.08884,
-      -42.8017
-    ],
-    [
-      -5.0892,
-      -42.80162
+      -5.08899,
+      -42.80201
     ]
   ],
   "velocidade_media_kmh": 79.52,
-  "custo_combustivel": 527.58,
-  "custo_pedagio": 172.66,
-  "custo_total_estimado": 700.25,
-  "timestamp": "2025-09-16T16:14:11.719217"
+  "custo_combustivel": 527.55,
+  "custo_pedagio": 172.65,
+  "custo_total_estimado": 700.2,
+  "timestamp": "2025-09-18T02:36:04.136484"
 }

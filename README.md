@@ -36,9 +36,26 @@ echo "GRAPHHOPPER_API_KEY=sua_chave_aqui" > .env
 
 # 4. Execute a análise completa
 python ia_analise.py
+
+# 5. (Opcional) Gere mapas interativos atualizados
+python dados_malha_viaria.py
 ```
 
-**Output:** Análise completa de IA com recomendação baseada em 23+ variáveis e 4 metodologias avançadas
+**Output:** 
+- Análise completa de IA com recomendação baseada em 23+ variáveis
+- Relatório JSON com resultados detalhados
+- **Mapas HTML interativos** (`mapa_entregas_recife.html` e `mapa_entregas_salvador.html`)
+
+### 🎯 **Quick Demo dos Mapas**
+
+```bash
+# Visualização rápida dos mapas (Windows)
+start mapa_entregas_recife.html & start mapa_entregas_salvador.html
+
+# Ou gere previews simplificados
+python gerar_preview_mapas.py
+start preview_mapa_recife.html & start preview_mapa_salvador.html
+```
 
 ## 🏗️ Arquitetura do Sistema
 
@@ -55,7 +72,8 @@ graph TD
     G --> H
     H --> I[Relatório JSON]
     H --> J[Datasets CSV]
-    H --> K[Mapas Interativos]
+    B --> K[Mapas HTML Interativos]
+    K --> L[Folium + Polylines]
 ```
 
 ## 📊 Componentes do Sistema
@@ -65,7 +83,7 @@ graph TD
 | 🧠 **IA Análise** | Engine principal de decisão | Fuzzy Logic + ML + GA | Recomendação final |
 | 📈 **Dados Demográficos** | Análise populacional e econômica | APIs IBGE + Pandas | Dataset 13 estados |
 | 🏢 **Custos Imobiliários** | Análise de viabilidade financeira | SIDRA + Cálculos | Dataset 2 cidades |
-| 🗺️ **Malha Viária** | Análise de rotas e logística | GraphHopper + Async | 24 rotas + mapas |
+| 🗺️ **Malha Viária** | Análise de rotas e logística | GraphHopper + Async | 24 rotas + mapas HTML |
 
 ## 🤖 Metodologias de IA Implementadas
 
@@ -93,7 +111,9 @@ case_magalu_2025/
 ├── 🏢 dados_custos_imobiliarios.py       # Análise custos construção
 ├── 🗺️ dados_malha_viaria.py             # Sistema de rotas avançado
 ├── 📋 resultado_analise_magalu.json     # Resultado final da IA
-├── 📂 datasets_gerados/            # Datasets CSV processados
+├── �️ mapa_entregas_recife.html          # Mapa interativo - Recife
+├── 🗺️ mapa_entregas_salvador.html        # Mapa interativo - Salvador
+├── �📂 datasets_gerados/            # Datasets CSV processados
 │   ├── dataset_custos_imobiliario.csv
 │   ├── dataset_rotas_nordeste.csv
 │   └── dataset_demografica_vizinhos_recife_salvador.csv
@@ -123,6 +143,124 @@ case_magalu_2025/
 - **24 rotas** bidirecionais completas
 - **6 métricas** por rota (distância, tempo, custos)
 - **Cache inteligente** com TTL de 7 dias
+
+## 🗺️ Mapas Interativos Gerados
+
+> **🌐 DEMO ONLINE:** Para visualizar os mapas diretamente no navegador, configure GitHub Pages no repositório e acesse:
+> - **Recife:** `https://lucasabreuzip.github.io/case_magalu_2025/mapa_entregas_recife.html`
+> - **Salvador:** `https://lucasabreuzip.github.io/case_magalu_2025/mapa_entregas_salvador.html`
+
+O sistema gera automaticamente **mapas HTML interativos** com visualização completa das rotas de distribuição:
+
+### 📍 **Mapas Disponíveis**
+- **🗺️ `mapa_entregas_recife.html`** - Todas as rotas partindo de Recife
+- **🗺️ `mapa_entregas_salvador.html`** - Todas as rotas partindo de Salvador
+
+### 🎯 **Características dos Mapas**
+- ✅ **Visualização interativa** com Folium
+- ✅ **Rotas reais** baseadas na API GraphHopper
+- ✅ **Polylines precisas** com coordenadas GPS
+- ✅ **Tooltips informativos** com métricas por rota:
+  - Distância em quilômetros
+  - Tempo de viagem em horas
+  - Custo total estimado (R$)
+  - Velocidade média (km/h)
+- ✅ **Marcadores diferenciados:**
+  - 🔴 **Origem** (vermelho) - Recife ou Salvador
+  - 🔵 **Destinos** (azul) - Capitais do Nordeste
+- ✅ **Zoom automático** ajustado aos pontos da rota
+- ✅ **Interface responsiva** para desktop e mobile
+
+### 📊 **Dados Visualizados**
+Cada mapa exibe rotas para **12 capitais nordestinas**:
+- Fortaleza, Natal, João Pessoa, Maceió, Aracaju
+- Teresina, São Luís, Belo Horizonte, Vitória
+- Goiânia, Palmas, e a cidade de destino oposta
+
+### 🚀 **Como Visualizar**
+
+#### **💻 Visualização Local:**
+1. Execute o sistema de malha viária: `python dados_malha_viaria.py`
+2. Abra os arquivos HTML gerados no navegador:
+   ```bash
+   # Windows
+   start mapa_entregas_recife.html
+   start mapa_entregas_salvador.html
+   
+   # Linux/Mac
+   open mapa_entregas_recife.html
+   open mapa_entregas_salvador.html
+   ```
+3. Interaja com o mapa: zoom, pan, clique nos marcadores
+
+#### **🌐 Visualização Online:**
+Para visualizar os mapas online, você pode:
+
+1. **GitHub Pages (Recomendado):**
+   - Habilite GitHub Pages no repositório
+   - Acesse: `https://lucasabreuzip.github.io/case_magalu_2025/mapa_entregas_recife.html`
+
+2. **Netlify Drop:**
+   - Arraste os arquivos HTML para [netlify.com/drop](https://app.netlify.com/drop)
+   - Obtenha links públicos temporários
+
+3. **HTMLPreview.github.io:**
+   ```bash
+   # Copie a URL raw do GitHub e cole em:
+   http://htmlpreview.github.io/?https://github.com/lucasabreuzip/case_magalu_2025/blob/main/mapa_entregas_recife.html
+   ```
+
+4. **Preview Simplificado:**
+   ```bash
+   # Gere versões simplificadas para quick preview
+   python gerar_preview_mapas.py
+   # Abra: preview_mapa_recife.html e preview_mapa_salvador.html
+   ```
+
+#### **📱 Acesso Direto:**
+```bash
+# Navegar diretamente para os arquivos
+file:///caminho/completo/para/mapa_entregas_recife.html
+file:///caminho/completo/para/mapa_entregas_salvador.html
+```
+
+### 💡 **Casos de Uso dos Mapas**
+- **📈 Apresentações executivas** com visualização geográfica
+- **🎯 Análise de cobertura** regional por centro de distribuição
+- **📊 Comparação visual** de eficiência logística
+- **🗺️ Planejamento estratégico** de rotas de entrega
+
+### 🖼️ **Preview dos Mapas**
+
+#### **🗺️ Mapa de Entregas - Recife**
+<details>
+<summary>📍 <strong>Clique para ver detalhes do mapa de Recife</strong></summary>
+
+- **12 rotas** partindo de Recife para capitais nordestinas
+- **Distância média:** 1.119 km
+- **Destinos cobertos:** Fortaleza, Natal, João Pessoa, Maceió, Aracaju, Salvador, Teresina, São Luís, Belo Horizonte, Vitória, Goiânia, Palmas
+- **Arquivo:** `mapa_entregas_recife.html`
+
+**Métricas principais:**
+- Rota mais próxima: João Pessoa (116 km, 1.7h)
+- Rota mais distante: Goiânia (2.271 km, 28.6h)
+- Custo médio por rota: R$ 681,98
+</details>
+
+#### **🗺️ Mapa de Entregas - Salvador**
+<details>
+<summary>📍 <strong>Clique para ver detalhes do mapa de Salvador</strong></summary>
+
+- **12 rotas** partindo de Salvador para capitais nordestinas
+- **Distância média:** 1.103 km
+- **Destinos cobertos:** Fortaleza, Natal, João Pessoa, Recife, Maceió, Aracaju, Teresina, São Luís, Belo Horizonte, Vitória, Goiânia, Palmas
+- **Arquivo:** `mapa_entregas_salvador.html`
+
+**Métricas principais:**
+- Rota mais próxima: Aracaju (326 km, 4.0h)
+- Rota mais distante: Goiânia (1.654 km, 20.1h)
+- Custo médio por rota: R$ 700,25
+</details>
 
 ## ⚙️ Configuração e Instalação
 
@@ -242,9 +380,11 @@ Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICE
 - Resultados devem ser validados para uso comercial
 - APIs externas sujeitas a seus próprios termos de uso
 
-## 🔗 Links Úteis
+### �️ **Visualização dos Mapas**
+   - [🗺️ Mapa Recife](https://lucasabreuzip.github.io/case_magalu_2025/mapa_entregas_recife.html)
+   - [🗺️ Mapa Salvador](https://lucasabreuzip.github.io/case_magalu_2025/mapa_entregas_salvador.html)
 
-### 📚 **Documentação Detalhada**
+### �📚 **Documentação Detalhada**
 - [🧠 Sistema de IA](README_IA_ANALISE.md) - Engine principal e algoritmos
 - [📈 Análise Demográfica](README_CONSUMO.md) - Dados IBGE e população
 - [🏢 Custos Imobiliários](README_CUSTOS_IMOBILIARIOS.md) - Análise financeira
